@@ -18,20 +18,20 @@ export default function LanguageSwitcher() {
     <div className="flex gap-0.5 text-sm">
       <button
         onClick={() => switchLocale("ru")}
-        className={`px-2.5 py-1 rounded font-medium transition-colors ${
+        className={`px-2.5 py-1 rounded-cdr-softer font-medium transition-colors ${
           locale === "ru"
-            ? "bg-brand text-white"
-            : "text-muted hover:text-text-primary hover:bg-surface"
+            ? "bg-cdr-btn-primary-bg text-cdr-btn-primary-text"
+            : "text-cdr-warm-700 hover:text-cdr-text-emphasis hover:bg-cdr-warm-100"
         }`}
       >
         RU
       </button>
       <button
         onClick={() => switchLocale("en")}
-        className={`px-2.5 py-1 rounded font-medium transition-colors ${
+        className={`px-2.5 py-1 rounded-cdr-softer font-medium transition-colors ${
           locale === "en"
-            ? "bg-brand text-white"
-            : "text-muted hover:text-text-primary hover:bg-surface"
+            ? "bg-cdr-btn-primary-bg text-cdr-btn-primary-text"
+            : "text-cdr-warm-700 hover:text-cdr-text-emphasis hover:bg-cdr-warm-100"
         }`}
       >
         EN

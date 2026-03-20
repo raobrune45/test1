@@ -21,16 +21,15 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border-light">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 bg-cdr-bg-secondary/95 backdrop-blur-sm border-b border-cdr-border-primary shadow-cdr-raised">
+      <div className="max-w-[1232px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link
             href={`/${locale}`}
             className="flex items-center gap-2.5 group"
           >
-            {/* Leaf mark */}
             <svg
-              className="w-7 h-7 text-brand transition-transform group-hover:scale-105"
+              className="w-7 h-7 text-cdr-text-brand transition-transform group-hover:scale-105"
               viewBox="0 0 28 28"
               fill="currentColor"
             >
@@ -40,29 +39,29 @@ export default function Header() {
               <path d="M11 15l3-2" stroke="white" strokeWidth="1" fill="none"/>
               <path d="M17 17l-3-2" stroke="white" strokeWidth="1" fill="none"/>
             </svg>
-            <span className="font-serif text-lg font-semibold text-brand tracking-tight">
+            <span className="font-serif text-lg font-semibold text-cdr-text-brand tracking-tight">
               ГумиТехЛаб
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-0.5">
             {navItems.map((item) => (
               <Link
                 key={item.key}
                 href={`/${locale}${item.href}`}
-                className="text-sm font-medium text-text-primary px-3 py-2 rounded hover:bg-surface transition-colors"
+                className="text-sm font-medium text-cdr-text-secondary px-3 py-2 rounded-cdr-softer hover:bg-cdr-warm-100 hover:text-cdr-text-emphasis transition-colors"
               >
                 {t(item.key)}
               </Link>
             ))}
-            <div className="ml-3 pl-3 border-l border-border-light">
+            <div className="ml-3 pl-3 border-l border-cdr-border-primary">
               <LanguageSwitcher />
             </div>
           </nav>
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-text-primary p-2 rounded hover:bg-surface transition-colors"
+            className="md:hidden text-cdr-text-secondary p-2 rounded-cdr-softer hover:bg-cdr-warm-100 transition-colors"
             aria-label="Menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,12 +75,12 @@ export default function Header() {
         </div>
 
         {mobileOpen && (
-          <nav className="md:hidden pb-4 border-t border-border-light pt-3 flex flex-col gap-1">
+          <nav className="md:hidden pb-4 border-t border-cdr-border-primary pt-3 flex flex-col gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.key}
                 href={`/${locale}${item.href}`}
-                className="text-sm font-medium text-text-primary px-3 py-2.5 rounded hover:bg-surface transition-colors"
+                className="text-sm font-medium text-cdr-text-secondary px-3 py-2.5 rounded-cdr-softer hover:bg-cdr-warm-100 hover:text-cdr-text-emphasis transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {t(item.key)}

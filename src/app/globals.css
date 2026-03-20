@@ -1,93 +1,229 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme inline {
-  /* Cedar-inspired palette — warm, natural, light */
-  --color-background: #ffffff;
-  --color-background-secondary: #F4F2ED;
-  --color-foreground: #1a1a1a;
-  --color-text-primary: #292929;
-  --color-text-secondary: #6b6b6b;
-  --color-brand: #1a3c34;
-  --color-brand-light: #2d6a4f;
-  --color-brand-dark: #112b25;
-  --color-accent: #1a3c34;
-  --color-accent-hover: #112b25;
-  --color-surface: #F4F2ED;
-  --color-surface-light: #faf9f6;
-  --color-warm-grey: #d6d2cb;
-  --color-muted: #76756f;
-  --color-border: #d6d2cb;
-  --color-border-light: #e8e6e1;
-  --color-error: #c41230;
-  --color-inverse: #ffffff;
+  /* ── Cedar Design System – Color Tokens ── */
 
-  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Lora", Georgia, "Times New Roman", serif;
+  /* Backgrounds */
+  --color-cdr-bg-primary: #f7f5f3;
+  --color-cdr-bg-secondary: #ffffff;
+  --color-cdr-bg-surface-primary: #ffffff;
+  --color-cdr-bg-surface-secondary: #f7f5f3;
+  --color-cdr-bg-brand-spruce: #1f513f;
+  --color-cdr-bg-success: #ecf9e6;
+  --color-cdr-bg-info: #e2f4fe;
+  --color-cdr-bg-warning: #fdf6e2;
+  --color-cdr-bg-error: #fcefe4;
+  --color-cdr-bg-modal-overlay: rgba(247, 245, 243, 0.85);
+  --color-cdr-bg-code: #edeae3;
+
+  /* Text */
+  --color-cdr-text-primary: rgba(46, 46, 43, 0.9);
+  --color-cdr-text-secondary: #4b4a48;
+  --color-cdr-text-emphasis: #2e2e2b;
+  --color-cdr-text-brand: #1f513f;
+  --color-cdr-text-inverse: #fafbf9;
+  --color-cdr-text-disabled: #d5cfc3;
+  --color-cdr-text-success: #2e6b34;
+  --color-cdr-text-error: #811823;
+  --color-cdr-text-info: #1b437e;
+  --color-cdr-text-warning: #854714;
+  --color-cdr-text-placeholder: #736e65;
+  --color-cdr-text-help: #736e65;
+
+  /* Borders */
+  --color-cdr-border-primary: #d5cfc3;
+  --color-cdr-border-secondary: #958e83;
+  --color-cdr-border-success: #3b8349;
+  --color-cdr-border-warning: #b68b37;
+  --color-cdr-border-error: #bb4045;
+  --color-cdr-border-info: #406eb5;
+  --color-cdr-border-input: #958e83;
+  --color-cdr-border-input-focus: #2e2e2b;
+  --color-cdr-border-input-error: #b33322;
+
+  /* Icons */
+  --color-cdr-icon-default: #4b4a48;
+  --color-cdr-icon-emphasis: #4b4a48;
+  --color-cdr-icon-link: #406eb5;
+  --color-cdr-icon-disabled: #d5cfc3;
+
+  /* Buttons */
+  --color-cdr-btn-primary-bg: #1f513f;
+  --color-cdr-btn-primary-hover-bg: #c7dfd1;
+  --color-cdr-btn-primary-text: #fafbf9;
+  --color-cdr-btn-primary-hover-text: #1f513f;
+  --color-cdr-btn-secondary-bg: #fafbf9;
+  --color-cdr-btn-secondary-text: #4b4a48;
+  --color-cdr-btn-secondary-border: #958e83;
+  --color-cdr-btn-secondary-hover-border: #4b4a48;
+  --color-cdr-btn-disabled-bg: #d5cfc3;
+
+  /* Semantic (warm greys) */
+  --color-cdr-warm-50: #fafbf9;
+  --color-cdr-warm-100: #f7f5f3;
+  --color-cdr-warm-200: #f9f8f6;
+  --color-cdr-warm-300: #edeae3;
+  --color-cdr-warm-400: #d5cfc3;
+  --color-cdr-warm-500: #b2ab9f;
+  --color-cdr-warm-600: #958e83;
+  --color-cdr-warm-700: #736e65;
+  --color-cdr-warm-800: #4b4a48;
+  --color-cdr-warm-900: #2e2e2b;
+
+  /* Sale & accent */
+  --color-cdr-sale: #c7370f;
+  --color-cdr-link: #406eb5;
+  --color-cdr-link-hover: #0b2d60;
+  --color-cdr-rating: #ffd280;
+
+  /* ── Cedar Shadows (Prominence) ── */
+  --shadow-cdr-flat: 0 0 0 0 rgba(46, 46, 43, 0.2);
+  --shadow-cdr-raised: 0 2px 2px 0 rgba(46, 46, 43, 0.2);
+  --shadow-cdr-elevated: 0 4px 4px 0 rgba(46, 46, 43, 0.2);
+  --shadow-cdr-floating: 0 8px 8px 0 rgba(46, 46, 43, 0.2);
+  --shadow-cdr-lifted: 0 16px 16px 0 rgba(46, 46, 43, 0.2);
+
+  /* ── Cedar Radius ── */
+  --radius-cdr-sharp: 0;
+  --radius-cdr-soft: 2px;
+  --radius-cdr-softer: 4px;
+  --radius-cdr-softest: 6px;
+  --radius-cdr-round: 999px;
+
+  /* ── Cedar Breakpoints ── */
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1232px;
+
+  /* ── Typography ── */
+  --font-sans: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
 }
 
+/* ── Base ── */
 body {
-  background: var(--color-background);
-  color: var(--color-text-primary);
+  background: var(--color-cdr-bg-primary);
+  color: var(--color-cdr-text-primary);
   -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.625;
 }
 
 ::selection {
-  background: var(--color-brand);
-  color: #fff;
+  background: var(--color-cdr-bg-brand-spruce);
+  color: var(--color-cdr-text-inverse);
 }
 
-/* ── Cedar-style button patterns ── */
+/* ── Cedar Buttons ── */
 .btn-primary {
-  background: var(--color-brand);
-  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-cdr-btn-primary-bg);
+  color: var(--color-cdr-btn-primary-text);
   font-weight: 600;
   padding: 0.75rem 2rem;
-  border-radius: 0.375rem;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
-  border: 2px solid var(--color-brand);
+  border-radius: var(--radius-cdr-softest);
+  border: 2px solid var(--color-cdr-btn-primary-bg);
+  transition: all 0.2s cubic-bezier(0.32, 0.94, 0.60, 1);
+  cursor: pointer;
 }
 .btn-primary:hover {
-  background: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
+  background: var(--color-cdr-btn-primary-hover-bg);
+  color: var(--color-cdr-btn-primary-hover-text);
+  border-color: var(--color-cdr-btn-primary-bg);
+}
+.btn-primary:active {
+  background: var(--color-cdr-btn-primary-bg);
+  color: var(--color-cdr-btn-primary-text);
 }
 .btn-primary:focus-visible {
-  outline: 2px solid var(--color-brand);
+  outline: 2px solid var(--color-cdr-text-emphasis);
   outline-offset: 2px;
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--color-brand);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-cdr-btn-secondary-bg);
+  color: var(--color-cdr-btn-secondary-text);
   font-weight: 600;
   padding: 0.75rem 2rem;
-  border-radius: 0.375rem;
-  border: 2px solid var(--color-brand);
-  transition: background 0.2s ease, color 0.2s ease;
+  border-radius: var(--radius-cdr-softest);
+  border: 2px solid var(--color-cdr-btn-secondary-border);
+  transition: all 0.2s cubic-bezier(0.32, 0.94, 0.60, 1);
+  cursor: pointer;
 }
 .btn-secondary:hover {
-  background: var(--color-brand);
-  color: #fff;
+  border-color: var(--color-cdr-btn-secondary-hover-border);
+  background: var(--color-cdr-warm-200);
+}
+.btn-secondary:active {
+  background: var(--color-cdr-warm-600);
+  color: var(--color-cdr-text-inverse);
+}
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--color-cdr-text-emphasis);
+  outline-offset: 2px;
 }
 
-/* ── Cedar card style ── */
+/* ── Cedar Card ── */
 .cedar-card {
-  background: var(--color-background);
-  border: 1px solid var(--color-border-light);
-  border-radius: 0.5rem;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  background: var(--color-cdr-bg-surface-primary);
+  border: 1px solid var(--color-cdr-border-primary);
+  border-radius: var(--radius-cdr-softest);
+  box-shadow: var(--shadow-cdr-flat);
+  transition: box-shadow 0.3s cubic-bezier(0.32, 0.94, 0.60, 1),
+              border-color 0.3s cubic-bezier(0.32, 0.94, 0.60, 1);
 }
 .cedar-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border-color: var(--color-warm-grey);
+  box-shadow: var(--shadow-cdr-elevated);
+  border-color: var(--color-cdr-border-secondary);
 }
 
-/* ── Section divider ── */
+/* ── Cedar Divider ── */
 .cedar-divider {
   height: 3px;
   width: 48px;
-  background: var(--color-brand);
-  border-radius: 2px;
+  background: var(--color-cdr-bg-brand-spruce);
+  border-radius: var(--radius-cdr-round);
+}
+
+/* ── Cedar Input ── */
+.cedar-input {
+  width: 100%;
+  background: var(--color-cdr-bg-secondary);
+  border: 1px solid var(--color-cdr-border-input);
+  border-radius: var(--radius-cdr-softer);
+  padding: 0.625rem 1rem;
+  color: var(--color-cdr-text-emphasis);
+  font-size: 1rem;
+  transition: border-color 0.2s cubic-bezier(0.32, 0.94, 0.60, 1),
+              box-shadow 0.2s cubic-bezier(0.32, 0.94, 0.60, 1);
+}
+.cedar-input::placeholder {
+  color: var(--color-cdr-text-placeholder);
+}
+.cedar-input:hover {
+  border-color: var(--color-cdr-border-input-focus);
+}
+.cedar-input:focus {
+  outline: none;
+  border-color: var(--color-cdr-border-input-focus);
+  box-shadow: 0 0 0 1px var(--color-cdr-border-input-focus);
+}
+
+/* ── Cedar Label ── */
+.cedar-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-cdr-text-secondary);
+  margin-bottom: 0.375rem;
 }
 
 /* ── Smooth fade-in ── */
@@ -103,7 +239,7 @@ body {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out both;
+  animation: fadeInUp 0.5s cubic-bezier(0.32, 0.94, 0.60, 1) both;
 }
 
 .animate-delay-1 { animation-delay: 0.1s; }
@@ -118,7 +254,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--color-brand);
+  outline: 2px solid var(--color-cdr-text-emphasis);
   outline-offset: 2px;
 }
 
@@ -127,12 +263,12 @@ textarea:focus-visible {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-background-secondary);
+  background: var(--color-cdr-bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-warm-grey);
-  border-radius: 4px;
+  background: var(--color-cdr-warm-400);
+  border-radius: var(--radius-cdr-round);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-muted);
+  background: var(--color-cdr-warm-600);
 }

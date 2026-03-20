@@ -32,18 +32,18 @@ export default async function CasesPage({
 
   return (
     <>
-      <div className="bg-brand text-white py-14 px-4">
-        <div className="max-w-7xl mx-auto">
+      <div className="bg-cdr-bg-brand-spruce text-cdr-text-inverse py-14 px-4">
+        <div className="max-w-[1232px] mx-auto">
           <h1 className="font-serif text-3xl sm:text-4xl font-bold mb-2">
             {t("title")}
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl">
+          <p className="text-cdr-text-inverse/70 text-lg max-w-2xl">
             {t("subtitle")}
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[1232px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="space-y-6">
           {cases.map((c, i) => (
             <div
@@ -52,22 +52,22 @@ export default async function CasesPage({
             >
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                 <div>
-                  <h3 className="font-serif text-xl font-semibold text-text-primary">
+                  <h3 className="font-serif text-xl font-semibold text-cdr-text-emphasis">
                     {c.title}
                   </h3>
-                  <p className="text-sm text-text-secondary mt-1 flex items-center gap-1.5">
-                    <svg className="w-3.5 h-3.5 text-muted" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                  <p className="text-sm text-cdr-text-secondary mt-1 flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 text-cdr-warm-600" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                     </svg>
                     {c.region}
                   </p>
                 </div>
-                <span className="inline-block bg-brand/8 text-brand text-sm font-semibold px-4 py-2 rounded-md whitespace-nowrap">
+                <span className="inline-block bg-cdr-bg-brand-spruce/8 text-cdr-text-brand text-sm font-semibold px-4 py-2 rounded-cdr-softest whitespace-nowrap">
                   {c.result}
                 </span>
               </div>
-              <p className="text-text-secondary leading-relaxed">{c.desc}</p>
+              <p className="text-cdr-text-secondary leading-relaxed">{c.desc}</p>
             </div>
           ))}
         </div>

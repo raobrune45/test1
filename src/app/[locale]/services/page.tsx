@@ -42,32 +42,31 @@ export default async function ServicesPage({
 
   return (
     <>
-      {/* Page header with brand bg */}
-      <div className="bg-brand text-white py-14 px-4">
-        <div className="max-w-7xl mx-auto">
+      <div className="bg-cdr-bg-brand-spruce text-cdr-text-inverse py-14 px-4">
+        <div className="max-w-[1232px] mx-auto">
           <h1 className="font-serif text-3xl sm:text-4xl font-bold mb-2">
             {t("title")}
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl">
+          <p className="text-cdr-text-inverse/70 text-lg max-w-2xl">
             {t("subtitle")}
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[1232px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <div
               key={i}
               className={`cedar-card p-7 group animate-fade-in-up animate-delay-${(i % 3) + 1}`}
             >
-              <div className="w-11 h-11 rounded-lg bg-brand/8 flex items-center justify-center text-brand mb-5 group-hover:bg-brand/15 transition-colors">
+              <div className="w-11 h-11 rounded-cdr-softest bg-cdr-bg-brand-spruce/8 flex items-center justify-center text-cdr-text-brand mb-5 group-hover:bg-cdr-bg-brand-spruce/15 transition-colors">
                 {serviceIcons[i]}
               </div>
-              <h3 className="font-serif text-lg font-semibold text-text-primary mb-2">
+              <h3 className="font-serif text-lg font-semibold text-cdr-text-emphasis mb-2">
                 {service.title}
               </h3>
-              <p className="text-sm text-text-secondary leading-relaxed">
+              <p className="text-sm text-cdr-text-secondary leading-relaxed">
                 {service.desc}
               </p>
             </div>
