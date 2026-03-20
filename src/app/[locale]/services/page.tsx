@@ -1,7 +1,13 @@
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export default function ServicesPage() {
-  const t = useTranslations("services");
+export default async function ServicesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("services");
 
   const services = [
     { title: t("service1Title"), desc: t("service1Desc") },

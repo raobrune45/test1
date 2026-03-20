@@ -1,13 +1,14 @@
-import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 
-export default function HomePage({
+export default async function HomePage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const t = useTranslations("home");
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("home");
 
   const benefits = [
     { title: t("benefit1Title"), desc: t("benefit1Desc"), icon: "🔬" },

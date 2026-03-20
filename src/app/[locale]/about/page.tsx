@@ -1,7 +1,13 @@
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export default function AboutPage() {
-  const t = useTranslations("about");
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("about");
 
   const history = [
     t("history1"),
@@ -22,7 +28,6 @@ export default function AboutPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <h1 className="text-4xl font-bold mb-12">{t("title")}</h1>
 
-      {/* Mission */}
       <section className="mb-16">
         <h2 className="text-2xl font-semibold text-accent mb-4">
           {t("missionTitle")}
@@ -32,7 +37,6 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* History */}
       <section className="mb-16">
         <h2 className="text-2xl font-semibold text-accent mb-6">
           {t("historyTitle")}
@@ -47,7 +51,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
       <section>
         <h2 className="text-2xl font-semibold text-accent mb-6">
           {t("teamTitle")}
