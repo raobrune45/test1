@@ -21,7 +21,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-cdr-bg-secondary/95 backdrop-blur-sm border-b border-cdr-border-primary shadow-cdr-raised">
+    <header className="sticky top-0 z-50 bg-cdr-bg-secondary/95 backdrop-blur-sm shadow-cdr-raised">
       <div className="max-w-[1232px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link

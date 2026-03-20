@@ -47,7 +47,7 @@ export default async function ContactsPage({
       <div className="max-w-[1232px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Form */}
-          <div className="cedar-card p-8">
+          <div className="cedar-card-static p-8">
             <ContactForm />
           </div>
 
