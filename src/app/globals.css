@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #0a0a0a;
+  --color-foreground: #e0e0e0;
+  --color-accent: #22c55e;
+  --color-accent-dark: #16a34a;
+  --color-surface: #1a1a1a;
+  --color-surface-light: #2a2a2a;
+  --color-muted: #888888;
+  --color-border: #333333;
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #000;
+}
