@@ -1,15 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap");
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0a0a0a;
-  --color-foreground: #e0e0e0;
-  --color-accent: #22c55e;
-  --color-accent-dark: #16a34a;
-  --color-surface: #1a1a1a;
-  --color-surface-light: #2a2a2a;
-  --color-muted: #888888;
-  --color-border: #333333;
-  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --color-background: #0f1f0f;
+  --color-foreground: #f0ead6;
+  --color-accent: #d4a843;
+  --color-accent-dark: #b8922e;
+  --color-accent-light: #e8c96a;
+  --color-surface: #1a2e1a;
+  --color-surface-light: #243824;
+  --color-muted: #8a9a7e;
+  --color-border: #2d4a2d;
+  --color-border-light: #3d5a3d;
+  --color-cream: #f0ead6;
+  --color-deep: #0a170a;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-serif: "DM Serif Display", Georgia, serif;
 }
 
 body {
@@ -19,5 +25,106 @@ body {
 
 ::selection {
   background: var(--color-accent);
-  color: #000;
+  color: #0f1f0f;
+}
+
+/* Grain texture overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* Botanical decorative line */
+.botanical-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent) 20%,
+    var(--color-accent) 80%,
+    transparent
+  );
+  opacity: 0.4;
+}
+
+/* Staggered fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+.animate-delay-6 { animation-delay: 0.6s; }
+
+/* Decorative leaf SVG for section backgrounds */
+.leaf-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 Q45 20 30 55 Q15 20 30 5Z' fill='none' stroke='%232d4a2d' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  opacity: 0.15;
+}
+
+/* Gradient mesh background for hero */
+.hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 40%, rgba(42, 90, 42, 0.4) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 80% 60%, rgba(212, 168, 67, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 100% 100% at 50% 0%, rgba(15, 31, 15, 1) 0%, rgba(10, 23, 10, 1) 100%);
+}
+
+/* Card hover glow */
+.card-glow {
+  transition: all 0.4s ease;
+  position: relative;
+}
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--color-accent), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+.card-glow:hover::before {
+  opacity: 0.15;
+}
+.card-glow:hover {
+  border-color: rgba(212, 168, 67, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-light);
 }
