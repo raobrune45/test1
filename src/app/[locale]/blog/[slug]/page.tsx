@@ -1,5 +1,4 @@
-import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts, getPost } from "@/data/blog";
@@ -11,26 +10,18 @@ export function generateStaticParams() {
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  const post = getPost(slug);
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
 
+  const post = getPost(slug);
   if (!post) {
     notFound();
   }
 
-  return <BlogPostContent post={post} />;
-}
-
-function BlogPostContent({
-  post,
-}: {
-  post: NonNullable<ReturnType<typeof getPost>>;
-}) {
-  const t = useTranslations("blog");
-  const tPosts = useTranslations("blogPosts");
-  const locale = useLocale();
+  const t = await getTranslations("blog");
+  const tPosts = await getTranslations("blogPosts");
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -48,7 +39,7 @@ function BlogPostContent({
         <h1 className="text-3xl sm:text-4xl font-bold mt-2 mb-8">
           {tPosts(post.titleKey)}
         </h1>
-        <div className="prose prose-invert max-w-none text-muted leading-relaxed whitespace-pre-line">
+        <div className="max-w-none text-muted leading-relaxed whitespace-pre-line">
           {tPosts(post.contentKey)}
         </div>
       </article>

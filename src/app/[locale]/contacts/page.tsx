@@ -1,8 +1,14 @@
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import ContactForm from "@/components/ContactForm";
 
-export default function ContactsPage() {
-  const t = useTranslations("contacts");
+export default async function ContactsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("contacts");
 
   const info = [
     { title: t("addressTitle"), text: t("addressText") },
@@ -29,7 +35,6 @@ export default function ContactsPage() {
             </div>
           ))}
 
-          {/* Map placeholder */}
           <div className="bg-surface border border-border rounded-lg h-48 flex items-center justify-center text-muted">
             <svg className="w-8 h-8 mr-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

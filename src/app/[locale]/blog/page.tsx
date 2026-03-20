@@ -1,12 +1,16 @@
-import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { blogPosts } from "@/data/blog";
 
-export default function BlogPage() {
-  const t = useTranslations("blog");
-  const tPosts = useTranslations("blogPosts");
-  const locale = useLocale();
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("blog");
+  const tPosts = await getTranslations("blogPosts");
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
