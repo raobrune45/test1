@@ -26,42 +26,41 @@ export default async function AboutPage({
 
   return (
     <>
-      {/* Page header */}
-      <div className="bg-brand text-white py-14 px-4">
-        <div className="max-w-7xl mx-auto">
+      <div className="bg-cdr-bg-brand-spruce text-cdr-text-inverse py-14 px-4">
+        <div className="max-w-[1232px] mx-auto">
           <h1 className="font-serif text-3xl sm:text-4xl font-bold">
             {t("title")}
           </h1>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[1232px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Mission */}
         <section className="mb-20">
-          <h2 className="font-serif text-2xl font-bold text-text-primary mb-2">
+          <h2 className="font-serif text-2xl font-bold text-cdr-text-emphasis mb-2">
             {t("missionTitle")}
           </h2>
           <div className="cedar-divider mb-6" />
-          <p className="text-lg text-text-secondary leading-relaxed max-w-3xl">
+          <p className="text-lg text-cdr-text-secondary leading-relaxed max-w-3xl">
             {t("missionText")}
           </p>
         </section>
 
         {/* History */}
         <section className="mb-20">
-          <h2 className="font-serif text-2xl font-bold text-text-primary mb-2">
+          <h2 className="font-serif text-2xl font-bold text-cdr-text-emphasis mb-2">
             {t("historyTitle")}
           </h2>
           <div className="cedar-divider mb-8" />
 
-          <div className="relative pl-8 border-l-2 border-brand/20 space-y-6">
+          <div className="relative pl-8 border-l-2 border-cdr-bg-brand-spruce/20 space-y-6">
             {history.map((item, i) => (
               <div
                 key={i}
                 className={`relative animate-fade-in-up animate-delay-${Math.min(i + 1, 6)}`}
               >
-                <div className="absolute -left-[calc(1rem+1px)] top-1.5 w-4 h-4 rounded-full border-2 border-brand bg-white" />
-                <p className="text-text-secondary leading-relaxed">{item}</p>
+                <div className="absolute -left-[calc(1rem+1px)] top-1.5 w-4 h-4 rounded-cdr-round border-2 border-cdr-bg-brand-spruce bg-cdr-bg-secondary" />
+                <p className="text-cdr-text-secondary leading-relaxed">{item}</p>
               </div>
             ))}
           </div>
@@ -69,7 +68,7 @@ export default async function AboutPage({
 
         {/* Team */}
         <section>
-          <h2 className="font-serif text-2xl font-bold text-text-primary mb-2">
+          <h2 className="font-serif text-2xl font-bold text-cdr-text-emphasis mb-2">
             {t("teamTitle")}
           </h2>
           <div className="cedar-divider mb-8" />
@@ -80,16 +79,16 @@ export default async function AboutPage({
                 key={i}
                 className={`cedar-card p-7 animate-fade-in-up animate-delay-${i + 1}`}
               >
-                <div className="w-14 h-14 rounded-full bg-brand flex items-center justify-center text-white font-serif text-xl font-bold mb-4">
+                <div className="w-14 h-14 rounded-cdr-round bg-cdr-bg-brand-spruce flex items-center justify-center text-cdr-text-inverse font-serif text-xl font-bold mb-4">
                   {member.name.charAt(0)}
                 </div>
-                <h3 className="font-semibold text-text-primary text-lg">
+                <h3 className="font-semibold text-cdr-text-emphasis text-lg">
                   {member.name}
                 </h3>
-                <p className="text-brand text-sm font-medium mt-0.5 mb-3">
+                <p className="text-cdr-text-brand text-sm font-medium mt-0.5 mb-3">
                   {member.role}
                 </p>
-                <p className="text-text-secondary text-sm leading-relaxed">
+                <p className="text-cdr-text-secondary text-sm leading-relaxed">
                   {member.desc}
                 </p>
               </div>

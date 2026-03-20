@@ -60,18 +60,18 @@ export default async function HomePage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-brand text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
+      <section className="bg-cdr-bg-brand-spruce text-cdr-text-inverse">
+        <div className="max-w-[1232px] mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
           <div className="max-w-2xl animate-fade-in-up">
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] mb-6">
               {t("heroTitle")}
             </h1>
-            <p className="text-lg sm:text-xl text-white/75 mb-10 leading-relaxed max-w-xl">
+            <p className="text-lg sm:text-xl text-cdr-text-inverse/75 mb-10 leading-relaxed max-w-xl">
               {t("heroSubtitle")}
             </p>
             <Link
               href="./services"
-              className="inline-flex items-center gap-2 bg-white text-brand font-semibold px-7 py-3.5 rounded-md hover:bg-surface-light transition-colors group"
+              className="inline-flex items-center gap-2 bg-cdr-bg-secondary text-cdr-text-brand font-semibold px-7 py-3.5 rounded-cdr-softest hover:bg-cdr-warm-50 transition-colors group shadow-cdr-raised"
             >
               {t("heroCta")}
               <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -83,10 +83,10 @@ export default async function HomePage({
       </section>
 
       {/* Benefits */}
-      <section className="py-20 px-4 bg-background-secondary">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-4 bg-cdr-bg-surface-secondary">
+        <div className="max-w-[1232px] mx-auto">
           <div className="text-center mb-14">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-text-primary mb-3">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-cdr-text-emphasis mb-3">
               {t("benefitsTitle")}
             </h2>
             <div className="cedar-divider mx-auto mt-4" />
@@ -98,11 +98,11 @@ export default async function HomePage({
                 key={i}
                 className={`cedar-card p-7 animate-fade-in-up animate-delay-${i + 1}`}
               >
-                <div className="w-12 h-12 rounded-lg bg-brand/8 flex items-center justify-center text-brand mb-5">
+                <div className="w-12 h-12 rounded-cdr-softest bg-cdr-bg-brand-spruce/8 flex items-center justify-center text-cdr-text-brand mb-5">
                   {b.icon}
                 </div>
-                <h3 className="font-semibold text-text-primary mb-2">{b.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">{b.desc}</p>
+                <h3 className="font-semibold text-cdr-text-emphasis mb-2">{b.title}</h3>
+                <p className="text-sm text-cdr-text-secondary leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -110,10 +110,10 @@ export default async function HomePage({
       </section>
 
       {/* Stats */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-4 bg-cdr-bg-secondary">
+        <div className="max-w-[1232px] mx-auto">
           <div className="text-center mb-14">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-text-primary mb-3">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-cdr-text-emphasis mb-3">
               {t("statsTitle")}
             </h2>
             <div className="cedar-divider mx-auto mt-4" />
@@ -123,12 +123,12 @@ export default async function HomePage({
             {stats.map((s, i) => (
               <div
                 key={i}
-                className={`text-center p-8 rounded-lg bg-background-secondary animate-fade-in-up animate-delay-${i + 1}`}
+                className={`text-center p-8 rounded-cdr-softest bg-cdr-bg-surface-secondary shadow-cdr-raised animate-fade-in-up animate-delay-${i + 1}`}
               >
-                <div className="font-serif text-4xl sm:text-5xl font-bold text-brand mb-2">
+                <div className="font-serif text-4xl sm:text-5xl font-bold text-cdr-text-brand mb-2">
                   {s.value}
                 </div>
-                <div className="text-text-secondary text-sm">{s.label}</div>
+                <div className="text-cdr-text-secondary text-sm">{s.label}</div>
               </div>
             ))}
           </div>

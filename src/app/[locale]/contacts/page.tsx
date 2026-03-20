@@ -35,16 +35,16 @@ export default async function ContactsPage({
 
   return (
     <>
-      <div className="bg-brand text-white py-14 px-4">
-        <div className="max-w-7xl mx-auto">
+      <div className="bg-cdr-bg-brand-spruce text-cdr-text-inverse py-14 px-4">
+        <div className="max-w-[1232px] mx-auto">
           <h1 className="font-serif text-3xl sm:text-4xl font-bold mb-2">
             {t("title")}
           </h1>
-          <p className="text-white/70 text-lg">{t("subtitle")}</p>
+          <p className="text-cdr-text-inverse/70 text-lg">{t("subtitle")}</p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[1232px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Form */}
           <div className="cedar-card p-8">
@@ -58,14 +58,14 @@ export default async function ContactsPage({
                 key={i}
                 className={`cedar-card p-5 flex items-start gap-4 animate-fade-in-up animate-delay-${i + 1}`}
               >
-                <div className="w-10 h-10 shrink-0 rounded-lg bg-brand/8 flex items-center justify-center text-brand">
+                <div className="w-10 h-10 shrink-0 rounded-cdr-softest bg-cdr-bg-brand-spruce/8 flex items-center justify-center text-cdr-text-brand">
                   {contactIcons[i]}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-text-primary text-sm">
+                  <h3 className="font-semibold text-cdr-text-emphasis text-sm">
                     {item.title}
                   </h3>
-                  <p className="text-text-secondary text-sm mt-0.5">
+                  <p className="text-cdr-text-secondary text-sm mt-0.5">
                     {item.text}
                   </p>
                 </div>
@@ -73,7 +73,7 @@ export default async function ContactsPage({
             ))}
 
             {/* Map placeholder */}
-            <div className="cedar-card h-48 flex items-center justify-center text-muted">
+            <div className="cedar-card h-48 flex items-center justify-center text-cdr-warm-600">
               <svg className="w-6 h-6 mr-2 opacity-40" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                 <path d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
               </svg>
