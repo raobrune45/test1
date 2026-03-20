@@ -4,7 +4,9 @@ import { notFound } from "next/navigation";
 import { blogPosts, getPost } from "@/data/blog";
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  return blogPosts.flatMap((post) =>
+    ["ru", "en"].map((locale) => ({ locale, slug: post.slug }))
+  );
 }
 
 export default async function BlogPostPage({
