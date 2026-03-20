@@ -39,7 +39,7 @@ export default function ContactForm() {
       </div>
       <div>
         <label className="cedar-label">{t("formMessage")}</label>
-        <textarea required rows={4} className="cedar-input resize-none" />
+        <textarea required rows={4} className="cedar-input" />
       </div>
       <button type="submit" className="btn-primary w-full">
         {t("formSubmit")}
