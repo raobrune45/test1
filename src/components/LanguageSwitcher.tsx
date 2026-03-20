@@ -15,23 +15,23 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex gap-0.5 text-sm bg-surface rounded-lg p-0.5">
+    <div className="flex gap-0.5 text-sm">
       <button
         onClick={() => switchLocale("ru")}
-        className={`px-3 py-1.5 rounded-md transition-all duration-300 ${
+        className={`px-2.5 py-1 rounded font-medium transition-colors ${
           locale === "ru"
-            ? "bg-accent text-deep font-semibold shadow-sm"
-            : "text-muted hover:text-cream"
+            ? "bg-brand text-white"
+            : "text-muted hover:text-text-primary hover:bg-surface"
         }`}
       >
         RU
       </button>
       <button
         onClick={() => switchLocale("en")}
-        className={`px-3 py-1.5 rounded-md transition-all duration-300 ${
+        className={`px-2.5 py-1 rounded font-medium transition-colors ${
           locale === "en"
-            ? "bg-accent text-deep font-semibold shadow-sm"
-            : "text-muted hover:text-cream"
+            ? "bg-brand text-white"
+            : "text-muted hover:text-text-primary hover:bg-surface"
         }`}
       >
         EN
