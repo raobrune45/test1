@@ -4,14 +4,11 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
-import LanguageSwitcher from "./LanguageSwitcher";
 
 const navItems = [
-  { key: "home", href: "" },
+  { key: "products", href: "/products" },
+  { key: "solutions", href: "/solutions" },
   { key: "about", href: "/about" },
-  { key: "services", href: "/services" },
-  { key: "cases", href: "/cases" },
-  { key: "blog", href: "/blog" },
   { key: "contacts", href: "/contacts" },
 ] as const;
 
@@ -23,10 +20,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-cdr-bg-secondary/95 backdrop-blur-sm shadow-cdr-raised">
       <div className="max-w-[1232px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center h-16">
+          {/* Logo — left */}
           <Link
             href={`/${locale}`}
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-2.5 group shrink-0"
           >
             <svg
               className="w-7 h-7 text-cdr-text-brand transition-transform group-hover:scale-105"
@@ -44,7 +42,8 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-0.5">
+          {/* Nav — centered */}
+          <nav className="hidden md:flex items-center justify-center flex-1 gap-0.5">
             {navItems.map((item) => (
               <Link
                 key={item.key}
@@ -54,14 +53,15 @@ export default function Header() {
                 {t(item.key)}
               </Link>
             ))}
-            <div className="ml-3 pl-3 border-l border-cdr-border-primary">
-              <LanguageSwitcher />
-            </div>
           </nav>
 
+          {/* Spacer to balance logo width on desktop */}
+          <div className="hidden md:block w-[140px] shrink-0" />
+
+          {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-cdr-text-secondary p-2 rounded-cdr-softer hover:bg-cdr-warm-100 transition-colors"
+            className="md:hidden ml-auto text-cdr-text-secondary p-2 rounded-cdr-softer hover:bg-cdr-warm-100 transition-colors"
             aria-label="Menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,6 +74,7 @@ export default function Header() {
           </button>
         </div>
 
+        {/* Mobile menu */}
         {mobileOpen && (
           <nav className="md:hidden pb-4 border-t border-cdr-border-primary pt-3 flex flex-col gap-1">
             {navItems.map((item) => (
@@ -86,9 +87,6 @@ export default function Header() {
                 {t(item.key)}
               </Link>
             ))}
-            <div className="mt-2 px-3">
-              <LanguageSwitcher />
-            </div>
           </nav>
         )}
       </div>

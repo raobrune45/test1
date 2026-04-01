@@ -1,6 +1,8 @@
 {
   "nav": {
     "home": "Home",
+    "products": "Products",
+    "solutions": "Solutions",
     "about": "About",
     "services": "Services",
     "cases": "Cases",

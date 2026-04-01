@@ -30,23 +30,23 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
+                <Link href="/products" className="text-cdr-text-inverse/70 hover:text-cdr-text-inverse transition-colors">
+                  {tNav("products")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/solutions" className="text-cdr-text-inverse/70 hover:text-cdr-text-inverse transition-colors">
+                  {tNav("solutions")}
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="text-cdr-text-inverse/70 hover:text-cdr-text-inverse transition-colors">
                   {tNav("about")}
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-cdr-text-inverse/70 hover:text-cdr-text-inverse transition-colors">
-                  {tNav("services")}
-                </Link>
-              </li>
-              <li>
-                <Link href="/cases" className="text-cdr-text-inverse/70 hover:text-cdr-text-inverse transition-colors">
-                  {tNav("cases")}
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-cdr-text-inverse/70 hover:text-cdr-text-inverse transition-colors">
-                  {tNav("blog")}
+                <Link href="/contacts" className="text-cdr-text-inverse/70 hover:text-cdr-text-inverse transition-colors">
+                  {tNav("contacts")}
                 </Link>
               </li>
             </ul>
